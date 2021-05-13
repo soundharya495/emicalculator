@@ -91,7 +91,7 @@ const LoanForm = ({ type }) => {
         onChange={(value) =>
           setEmidata({
             ...emidata,
-            amount: value,
+            interest: value,
           })
         }
       />
@@ -107,7 +107,7 @@ const LoanForm = ({ type }) => {
         onChange={(value) =>
           setEmidata({
             ...emidata,
-            amount: value,
+            tenure: value,
           })
         }
       />
