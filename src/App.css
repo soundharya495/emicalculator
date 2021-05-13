@@ -1,38 +1,90 @@
-.App {
-  text-align: center;
+:root {
+  --primary-color: #17b895;
+  --highlight-color: #22f3c6;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  font-family: "Raleway", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar {
+  background: #343a40;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 2rem;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  top: 0;
+  border-bottom: solid 5px var(--primary-color);
+}
+
+.wrapper {
+  max-width: 80vw;
+  margin: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-top: 8rem;
+}
+.menu {
+  display: flex;
+}
+.menu a {
+  cursor: pointer;
+  padding: 1rem;
+  border: none;
+  background: #343a40;
+  color: #fff;
+  border-bottom: solid 5px var(--primary-color);
+}
+.menu a:hover {
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2), 0 0 15px 0 rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.menu a:first-child {
+  border-radius: 10px 0 0 0;
+}
+.menu a:last-child {
+  border-radius: 0 10px 0 0;
+}
+.container {
+  background: #343a40;
+  border-radius: 0 10px 10px 10px;
+  color: #fff;
+  padding: 5rem;
+}
+
+.rangeslider-horizontal .rangeslider__fill {
+  background-color: var(--primary-color);
+}
+
+.inputgroup {
+  display: flex;
+  justify-content: space-around;
+}
+
+.inputgroup label {
+  font-size: large;
+  font-size: 1.5rem;
+}
+
+.inputgroup input {
+  padding: 0.5rem;
+  border-radius: 2px;
+  background-color: inherit;
+  border: 1px solid grey;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  font-size: 1.5rem;
 }
