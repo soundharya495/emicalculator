@@ -6,7 +6,7 @@ const Navbar = () => {
     <Fragment>
       <div className="navbar">
         <h1>
-          <i className="fa fa-calculator"></i> EMI Calculator
+          <i className="fa fa-calculator"></i>
         </h1>
       </div>
     </Fragment>

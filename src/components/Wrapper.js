@@ -1,42 +1,31 @@
 import React, { Fragment, useState } from "react";
+import Header from "./Header";
 import LoanForm from "./LoanForm";
+import EmiDetail from "./EmiDetail";
 
 const Wrapper = () => {
   const [type, setType] = useState("home");
+  const [emiDataWrap, setEmiDataWrap] = useState({
+    amount: 200000,
+    interest: 10,
+    tenure: 3,
+  });
   return (
     <div className="wrapper">
-      <div className="menu">
-        <a
-          onClick={() => {
-            setType("home");
-          }}
-        >
-          Home Loan
-        </a>
-        <a
-          onClick={() => {
-            setType("personal");
-          }}
-        >
-          Personal Loan
-        </a>
-        <a
-          onClick={() => {
-            setType("car");
-          }}
-        >
-          Car Loan
-        </a>
-        <a
-          onClick={() => {
-            setType("general");
-          }}
-        >
-          General Loan
-        </a>
-      </div>
+      <Header
+        setType={(type) => {
+          setType(type);
+        }}
+      />
       <div className="container">
-        <LoanForm type={type} />
+        <LoanForm
+          type={type}
+          setEmiDataWrap={(value) => {
+            setEmiDataWrap(value);
+            console.log(emiDataWrap);
+          }}
+        />
+        <EmiDetail emiData={emiDataWrap} />
       </div>
     </div>
   );
