@@ -31,19 +31,28 @@ const EmiDetail = ({ emiData }) => {
           <label>Monthly EMI</label>
           <p>
             <span>Rs. </span>
-            {Math.round(loanData.emi)}
+            {Math.round(loanData.emi)
+              .toFixed(2)
+              .replace(/(\d)(?=(\d{2})+\d\.)/g, "$1,")}
           </p>
         </Fragment>
         <Fragment>
           <label>Total Interest payable</label>
           <p>
             Rs.
-            {Math.abs(Math.round(loanData.interest))}
+            {Math.abs(Math.round(loanData.interest))
+              .toFixed(2)
+              .replace(/(\d)(?=(\d{2})+\d\.)/g, "$1,")}
           </p>
         </Fragment>
         <Fragment>
           <label>Total amount</label>
-          <p>Rs. {Math.abs(Math.round(loanData.interest)) + amount}</p>
+          <p>
+            Rs.{" "}
+            {(Math.abs(Math.round(loanData.interest)) + amount)
+              .toFixed(2)
+              .replace(/(\d)(?=(\d{2})+\d\.)/g, "$1,")}
+          </p>
         </Fragment>
       </div>
       <div className="col50">
