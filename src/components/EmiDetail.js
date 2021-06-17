@@ -27,32 +27,35 @@ const EmiDetail = ({ emiData }) => {
   return (
     <div className="frame">
       <div className="col50">
+        <label className="detail_head">EMI Details</label>
         <Fragment>
-          <label>Monthly EMI</label>
-          <p>
-            <span>Rs. </span>
-            {Math.round(loanData.emi)
-              .toFixed(2)
-              .replace(/(\d)(?=(\d{2})+\d\.)/g, "$1,")}
-          </p>
-        </Fragment>
-        <Fragment>
-          <label>Total Interest payable</label>
-          <p>
-            Rs.
-            {Math.abs(Math.round(loanData.interest))
-              .toFixed(2)
-              .replace(/(\d)(?=(\d{2})+\d\.)/g, "$1,")}
-          </p>
-        </Fragment>
-        <Fragment>
-          <label>Total amount</label>
-          <p>
-            Rs.{" "}
-            {(Math.abs(Math.round(loanData.interest)) + amount)
-              .toFixed(2)
-              .replace(/(\d)(?=(\d{2})+\d\.)/g, "$1,")}
-          </p>
+          <Fragment>
+            <label>Monthly EMI</label>
+            <p>
+              <span>Rs. </span>
+              {Math.round(loanData.emi)
+                .toFixed(2)
+                .replace(/(\d)(?=(\d{2})+\d\.)/g, "$1,")}
+            </p>
+          </Fragment>
+          <Fragment>
+            <label>Total Interest payable</label>
+            <p>
+              Rs.
+              {Math.abs(Math.round(loanData.interest))
+                .toFixed(2)
+                .replace(/(\d)(?=(\d{2})+\d\.)/g, "$1,")}
+            </p>
+          </Fragment>
+          <Fragment>
+            <label>Total amount</label>
+            <p>
+              Rs.{" "}
+              {(Math.abs(Math.round(loanData.interest)) + amount)
+                .toFixed(2)
+                .replace(/(\d)(?=(\d{2})+\d\.)/g, "$1,")}
+            </p>
+          </Fragment>
         </Fragment>
       </div>
       <div className="col50">

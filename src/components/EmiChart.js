@@ -7,7 +7,7 @@ const EmiChart = ({ interest, principal }) => {
     datasets: [
       {
         data: [interest, principal],
-        backgroundColor: ["#17b895", "rgb(237, 140, 43)"],
+        backgroundColor: ["#fcd364", "#9a6579"],
       },
     ],
   };

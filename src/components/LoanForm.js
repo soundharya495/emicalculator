@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+
+//slider library
 import Slider from "react-rangeslider";
 
 const LoanForm = ({ type, setEmiDataWrap }) => {
@@ -8,7 +10,7 @@ const LoanForm = ({ type, setEmiDataWrap }) => {
       maxLoanAmount: 20000000,
       minLoanInterest: 5,
       maxLoanInterest: 20,
-      minLoanTenure: 0,
+      minLoanTenure: 5,
       maxLoanTenure: 30,
     },
     personal: {
@@ -16,7 +18,7 @@ const LoanForm = ({ type, setEmiDataWrap }) => {
       maxLoanAmount: 1500000,
       minLoanInterest: 5,
       maxLoanInterest: 25,
-      minLoanTenure: 0,
+      minLoanTenure: 1,
       maxLoanTenure: 5,
     },
     car: {
@@ -24,7 +26,7 @@ const LoanForm = ({ type, setEmiDataWrap }) => {
       maxLoanAmount: 2000000,
       minLoanInterest: 5,
       maxLoanInterest: 20,
-      minLoanTenure: 0,
+      minLoanTenure: 1,
       maxLoanTenure: 7,
     },
     general: {
@@ -32,7 +34,7 @@ const LoanForm = ({ type, setEmiDataWrap }) => {
       maxLoanAmount: 50000000,
       minLoanInterest: 5,
       maxLoanInterest: 20,
-      minLoanTenure: 0,
+      minLoanTenure: 1,
       maxLoanTenure: 15,
     },
   });
@@ -55,7 +57,7 @@ const LoanForm = ({ type, setEmiDataWrap }) => {
   const formatInt = (value) => value + " %";
   const formatTenure = (value) => value + " Yrs";
   return (
-    <div>
+    <div className="col50">
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -71,12 +73,16 @@ const LoanForm = ({ type, setEmiDataWrap }) => {
             value={emidata.amount}
             /* .toFixed(2)
               .replace(/(\d)(?=(\d{2})+\d\.)/g, "$1,")}*/
-            onChange={(e) =>
+            onChange={(e) => {
               setEmidata({
                 ...emidata,
                 amount: parseInt(e.target.value),
-              })
-            }
+              });
+              setEmiDataWrap({
+                ...emidata,
+                amount: parseInt(e.target.value),
+              });
+            }}
           />
         </div>
         <Slider
@@ -84,24 +90,32 @@ const LoanForm = ({ type, setEmiDataWrap }) => {
           max={data[type].maxLoanAmount}
           value={emidata.amount}
           format={formatAmt}
-          onChange={(value) =>
+          onChange={(value) => {
             setEmidata({
               ...emidata,
               amount: value,
-            })
-          }
+            });
+            setEmiDataWrap({
+              ...emidata,
+              amount: value,
+            });
+          }}
         />
         <div className="inputgroup">
           <label> Loan Interest</label>
           <input
             type="text"
             value={emidata.interest}
-            onChange={(e) =>
+            onChange={(e) => {
               setEmidata({
                 ...emidata,
                 interest: e.target.value,
-              })
-            }
+              });
+              setEmiDataWrap({
+                ...emidata,
+                interest: e.target.value,
+              });
+            }}
           />
         </div>
         <Slider
@@ -109,24 +123,32 @@ const LoanForm = ({ type, setEmiDataWrap }) => {
           max={data[type].maxLoanInterest}
           value={emidata.interest}
           format={formatInt}
-          onChange={(value) =>
+          onChange={(value) => {
             setEmidata({
               ...emidata,
               interest: value,
-            })
-          }
+            });
+            setEmiDataWrap({
+              ...emidata,
+              interest: value,
+            });
+          }}
         />
         <div className="inputgroup">
           <label> Loan tenure</label>
           <input
             type="text"
             value={emidata.tenure}
-            onChange={(e) =>
+            onChange={(e) => {
               setEmidata({
                 ...emidata,
                 tenure: e.target.value,
-              })
-            }
+              });
+              setEmiDataWrap({
+                ...emidata,
+                tenure: e.target.value,
+              });
+            }}
           />
         </div>
         <Slider
@@ -134,14 +156,17 @@ const LoanForm = ({ type, setEmiDataWrap }) => {
           max={data[type].maxLoanTenure}
           value={emidata.tenure}
           format={formatTenure}
-          onChange={(value) =>
+          onChange={(value) => {
             setEmidata({
               ...emidata,
               tenure: value,
-            })
-          }
+            });
+            setEmiDataWrap({
+              ...emidata,
+              tenure: value,
+            });
+          }}
         />
-        <button className="btn">Calculate EMI</button>
       </form>
     </div>
   );

@@ -18,14 +18,16 @@ const Wrapper = () => {
         }}
       />
       <div className="container">
-        <LoanForm
-          type={type}
-          setEmiDataWrap={(value) => {
-            setEmiDataWrap(value);
-            console.log(emiDataWrap);
-          }}
-        />
-        <EmiDetail emiData={emiDataWrap} />
+        <div className="mainarea">
+          <LoanForm
+            type={type}
+            setEmiDataWrap={(value) => {
+              setEmiDataWrap(value);
+              console.log(emiDataWrap);
+            }}
+          />
+          <EmiDetail emiData={emiDataWrap} />
+        </div>
       </div>
     </div>
   );

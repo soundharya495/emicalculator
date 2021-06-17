@@ -31,11 +31,12 @@ body {
 }
 
 .wrapper {
-  max-width: 80vw;
+  max-width: 90vw;
   margin: auto;
   display: flex;
   flex-direction: column;
   margin-top: 8rem;
+  margin-bottom: 8rem;
 }
 .menu {
   display: flex;
@@ -46,6 +47,7 @@ body {
   border: none;
   background: #343a40;
   color: #fff;
+  text-decoration: none;
   border-bottom: solid 5px var(--primary-color);
 }
 .menu a:hover {
@@ -63,23 +65,35 @@ body {
   background: #343a40;
   border-radius: 0 10px 10px 10px;
   color: #fff;
-  padding: 5rem;
-  display: flex;
-  flex-direction: column;
+  padding: 3rem;
 }
 
+.mainarea {
+  width: 100%;
+  display: flex;
+  border: 5px dotted var(--primary-color);
+}
 .rangeslider-horizontal .rangeslider__fill {
   background-color: var(--primary-color);
+  height: 5px;
 }
 
+.rangeslider-horizontal {
+  height: 5px;
+}
+
+.formpanel {
+  margin-top: 25px;
+}
 .inputgroup {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .inputgroup label {
   font-size: large;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  padding-right: 20px;
 }
 
 .inputgroup input {
@@ -88,7 +102,7 @@ body {
   background-color: inherit;
   border: 1px solid grey;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 .btn {
@@ -102,8 +116,8 @@ body {
 }
 
 .frame {
-  margin: 5%;
-  font-size: 1.5rem;
+  margin: 20px;
+  font-size: 1.3rem;
   border: 1px solid grey;
   display: flex;
   justify-content: space-between;
@@ -116,5 +130,14 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 5px;
+}
+
+.col50 label {
+  color: rgb(184, 183, 183);
+}
+
+.detail_head {
+  justify-self: flex-start;
+  border-bottom: 2px solid grey;
 }
