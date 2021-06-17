@@ -53,6 +53,18 @@ const LoanForm = ({ type, setEmiDataWrap }) => {
     });
   }, [type]);
 
+  const OnIputChange = (e) => {
+    const name = e.target.name;
+    setEmidata({
+      ...emidata,
+      name: parseInt(e.target.value),
+    });
+    setEmiDataWrap({
+      ...emidata,
+      name: parseInt(e.target.value),
+    });
+  };
+
   const formatAmt = (value) => Math.round(value / 100000) + " L";
   const formatInt = (value) => value + " %";
   const formatTenure = (value) => value + " Yrs";
@@ -74,14 +86,7 @@ const LoanForm = ({ type, setEmiDataWrap }) => {
             /* .toFixed(2)
               .replace(/(\d)(?=(\d{2})+\d\.)/g, "$1,")}*/
             onChange={(e) => {
-              setEmidata({
-                ...emidata,
-                amount: parseInt(e.target.value),
-              });
-              setEmiDataWrap({
-                ...emidata,
-                amount: parseInt(e.target.value),
-              });
+              OnIputChange(e);
             }}
           />
         </div>
@@ -107,14 +112,7 @@ const LoanForm = ({ type, setEmiDataWrap }) => {
             type="text"
             value={emidata.interest}
             onChange={(e) => {
-              setEmidata({
-                ...emidata,
-                interest: e.target.value,
-              });
-              setEmiDataWrap({
-                ...emidata,
-                interest: e.target.value,
-              });
+              OnIputChange(e);
             }}
           />
         </div>
@@ -140,14 +138,7 @@ const LoanForm = ({ type, setEmiDataWrap }) => {
             type="text"
             value={emidata.tenure}
             onChange={(e) => {
-              setEmidata({
-                ...emidata,
-                tenure: e.target.value,
-              });
-              setEmiDataWrap({
-                ...emidata,
-                tenure: e.target.value,
-              });
+              OnIputChange(e);
             }}
           />
         </div>
