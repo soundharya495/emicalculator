@@ -4,38 +4,34 @@ const Header = ({ setType }) => {
   return (
     <div>
       <div className="menu">
-        <a
-          href="#"
+        <button
           onClick={() => {
             setType("home");
           }}
         >
           Home Loan
-        </a>
-        <a
-          href="#"
+        </button>
+        <button
           onClick={() => {
             setType("personal");
           }}
         >
           Personal Loan
-        </a>
-        <a
-          href="#"
+        </button>
+        <button
           onClick={() => {
             setType("car");
           }}
         >
           Car Loan
-        </a>
-        <a
-          href="#"
+        </button>
+        <button
           onClick={() => {
             setType("general");
           }}
         >
           General Loan
-        </a>
+        </button>
       </div>
     </div>
   );

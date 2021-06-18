@@ -41,24 +41,25 @@ body {
 .menu {
   display: flex;
 }
-.menu a {
+.menu button {
   cursor: pointer;
   padding: 1rem;
   border: none;
   background: #343a40;
   color: #fff;
   text-decoration: none;
+  font-size: 1rem;
   border-bottom: solid 5px var(--primary-color);
 }
-.menu a:hover {
+.menu button:hover {
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2), 0 0 15px 0 rgba(0, 0, 0, 0.3);
   position: relative;
 }
 
-.menu a:first-child {
+.menu button:first-child {
   border-radius: 10px 0 0 0;
 }
-.menu a:last-child {
+.menu button:last-child {
   border-radius: 0 10px 0 0;
 }
 .container {

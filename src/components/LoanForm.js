@@ -6,7 +6,7 @@ import Slider from "react-rangeslider";
 const LoanForm = ({ type, setEmiDataWrap }) => {
   const [data, setData] = useState({
     home: {
-      minLoanAmount: 0,
+      minLoanAmount: 50000,
       maxLoanAmount: 20000000,
       minLoanInterest: 5,
       maxLoanInterest: 20,
@@ -14,7 +14,7 @@ const LoanForm = ({ type, setEmiDataWrap }) => {
       maxLoanTenure: 30,
     },
     personal: {
-      minLoanAmount: 0,
+      minLoanAmount: 50000,
       maxLoanAmount: 1500000,
       minLoanInterest: 5,
       maxLoanInterest: 25,
@@ -22,7 +22,7 @@ const LoanForm = ({ type, setEmiDataWrap }) => {
       maxLoanTenure: 5,
     },
     car: {
-      minLoanAmount: 0,
+      minLoanAmount: 40000,
       maxLoanAmount: 2000000,
       minLoanInterest: 5,
       maxLoanInterest: 20,
@@ -30,7 +30,7 @@ const LoanForm = ({ type, setEmiDataWrap }) => {
       maxLoanTenure: 7,
     },
     general: {
-      minLoanAmount: 0,
+      minLoanAmount: 30000,
       maxLoanAmount: 50000000,
       minLoanInterest: 5,
       maxLoanInterest: 20,
@@ -54,10 +54,8 @@ const LoanForm = ({ type, setEmiDataWrap }) => {
   }, [type]);
 
   const OnIputChange = (e) => {
-    const name = e.target.name;
-    setEmidata({
-      ...emidata,
-      name: parseInt(e.target.value),
+    setEmidata((prevState) => {
+      return { ...prevState, [e.target.name]: e.target.value };
     });
     setEmiDataWrap({
       ...emidata,
@@ -83,6 +81,7 @@ const LoanForm = ({ type, setEmiDataWrap }) => {
           <input
             type="text"
             value={emidata.amount}
+            name="amount"
             /* .toFixed(2)
               .replace(/(\d)(?=(\d{2})+\d\.)/g, "$1,")}*/
             onChange={(e) => {
@@ -94,6 +93,7 @@ const LoanForm = ({ type, setEmiDataWrap }) => {
           min={data[type].minLoanAmount}
           max={data[type].maxLoanAmount}
           value={emidata.amount}
+          step={1}
           format={formatAmt}
           onChange={(value) => {
             setEmidata({
@@ -111,6 +111,7 @@ const LoanForm = ({ type, setEmiDataWrap }) => {
           <input
             type="text"
             value={emidata.interest}
+            name="interest"
             onChange={(e) => {
               OnIputChange(e);
             }}
@@ -137,6 +138,7 @@ const LoanForm = ({ type, setEmiDataWrap }) => {
           <input
             type="text"
             value={emidata.tenure}
+            name="tenure"
             onChange={(e) => {
               OnIputChange(e);
             }}
